@@ -11,7 +11,7 @@ class Student(Base):
     email = Column(String, unique=True, index=True)
     age = Column(Integer)
 
-    courses = relationship("Course", back_populates="students")
+    courses = relationship("Course", back_populates="student")
 
 
 class Course(Base):
@@ -22,4 +22,4 @@ class Course(Base):
     description = Column(String)
     student_id = Column(Integer, ForeignKey('students.id'))
 
-    students = relationship("Student", back_populates="courses")
+    student = relationship("Student", back_populates="courses")
